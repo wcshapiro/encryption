@@ -1,7 +1,7 @@
 import random
 
 def getKey(passedList):
-	key = random.sample(range(100),len(passedList))
+	key = random.sample(range(1,100),len(passedList))
 	return key
 	pass
 
@@ -9,12 +9,12 @@ def getKey(passedList):
 def getInput(): #This gets the inputs from the user
 	userInput = input(" What would you like to encrypt?: ")
 	listInput = list(userInput)
-	for q in listInput:
-		print(q)
+	# for q in listInput:
+	# 	print(q)
 	return listInput
 	pass
 
-def encryptInput(listToEncrypt, keyToUse):
+def encryptInput(listToEncrypt, keyToUse): #this section takes the list of chars and key and multiplies them to create the encrypted input
 	encryptedList = []
 	for i,j in zip(listToEncrypt, keyToUse):
 		output = i*j
@@ -25,7 +25,7 @@ def encryptInput(listToEncrypt, keyToUse):
 
 	pass
 
-def assignInput(listToAssign, alphabet):
+def assignInput(listToAssign, alphabet): #this section assigns that input to a letter/number in the dictionary
 	#print(listToAssign)
 	#print(alphabet)
 	assignedList = []
@@ -34,7 +34,7 @@ def assignInput(listToAssign, alphabet):
 			if i == j:
 				assignedList.append(alphabet.get(j))
 	return assignedList
-def decryption(returnedKey, returnedEncryption):
+def decryption(returnedKey, returnedEncryption): #
 
 	decryptedInput = []
 	for k,l in zip(returnedKey, returnedEncryption):
@@ -111,6 +111,15 @@ def main():
 	'x': 60,
 	'y': 61,
 	'z': 62,
+	'1': 63,
+	'2': 64,
+	'3': 65,
+	'4': 66,
+	'5': 67,
+	'6': 68,
+	'7': 69,
+	'8': 70,
+	'9': 71,
 	}
 	returnedList = getInput()
 	returnedKey = getKey(returnedList)
@@ -118,8 +127,12 @@ def main():
 	returnedEncryption = encryptInput(numberedInput, returnedKey)
 	if decryptionOption() == "Y":
 		decryptedInputToAssign = decryption(returnedKey, returnedEncryption)
+	else:
+		exit()
 	finalOutput = getDecryptedOutput(alphabet, decryptedInputToAssign)
 	pass
+
+
 
 if __name__ == '__main__':
 	main()
