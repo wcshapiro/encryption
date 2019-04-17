@@ -1,2 +1,3 @@
 # encryption
 This creates an encryption for words/phrases as well as a way to decrypt. 
+ This encryption code takes an input from a user from aA-zZ & 1-9 including spaces and numbers and splits them into a char list. That char list is then matched with the number corresponding to the dictionary I created and each number is multiplied by a randomly generated number to form incoherent jumble of numbers. To decrypt, the garble is divided by the list of random numbers known as the "key" and then re-run through the dictionary to assign itself back to the corresponding number/letter/space that was in the input.   
