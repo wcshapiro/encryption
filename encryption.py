@@ -33,8 +33,12 @@ def assignInput(listToAssign, alphabet): #this section assigns that input to a l
 		for j in alphabet:
 			if i == j:
 				assignedList.append(alphabet.get(j))
-	return assignedList
-def decryption(returnedKey, returnedEncryption): #
+	if not assignedList:
+		print ("input not valid. Must onlt contain letters aA-zZ, numbers 1-9 and spaces:") ## makes sure characters are valid
+		exit()
+	else:
+		return assignedList
+def decryption(returnedKey, returnedEncryption): # reverses process to decrypt message
 
 	decryptedInput = []
 	for k,l in zip(returnedKey, returnedEncryption):
@@ -43,10 +47,10 @@ def decryption(returnedKey, returnedEncryption): #
 	return decryptedInput
 
 	pass
-def decryptionOption():
+def decryptionOption(): #asks if user wants to decrypt
 	UserAnswer = input("Would you like to decrypt? (y/n): ").upper()
 	return UserAnswer
-def getDecryptedOutput(alphabet, decryptedInputToAssign):
+def getDecryptedOutput(alphabet, decryptedInputToAssign): #returns and prints decrypted output
 	decryptedOutput = []
 	for l in decryptedInputToAssign:
 		for m in alphabet:
